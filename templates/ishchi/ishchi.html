@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="toolbar">
+                            <!--Here you can write extra buttons/actions for the toolbar-->
+                        </div>
+                        <table id="bootstrap-table" class="table">
+                            <thead>
+                                <th data-field="state">N</th>
+                                <th data-field="state">Ismi</th>
+                                <th data-field="state">familiyasi</th>
+                                <th data-field="actions" class="td-actions">Actions</th>
+                            </thead>
+                            <tbody>
+                               {% for i in ishchi %}
+                                   <tr>
+                                       <td>{{forloop.counter}}</td>
+                                       <td>{{i.name}}</td>
+                                       <td>{{i.familyasi}}</td>
+                                       <td class="td-actions">
+                                        <a href="#" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
+                                            <i class="ti-user"></i>
+                                        </a>
+                                        <a href="#" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                                            <i class="ti-pencil-alt"></i>
+                                        </a>
+                                        <a href="#" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
+                                            <i class="ti-close"></i>
+                                        </a>
+                                       </td>
+                                  
+                                  
+                                   </tr>
+                               {% endfor %}
+                              
+                            </tbody>
+                        </table>
+                    </div>
+                </div><!--  end card  -->
+            </div> <!-- end col-md-12 -->
+        </div> <!-- end row -->
+    </div>
+    </div>
+{% endblock content %}
