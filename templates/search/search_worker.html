@@ -10,6 +10,9 @@
                         <div class="toolbar">
                             <!--Here you can write extra buttons/actions for the toolbar-->
                         </div>
+                        {% if i|length >= 1 %}
+                       
+
                         <table id="bootstrap-table" class="table">
                             <thead>
                                 <th data-field="state">N</th>
@@ -17,10 +20,9 @@
                                 <th data-field="state">familiyasi</th>
                                 <th data-field="actions" class="td-actions">Actions</th>
                             </thead>
+                            {% for i in i  %}
                             <tbody>
-                               
-                                {% for i in  ishchi %}
-                                   <tr>
+                                   <tr>                                
                                        <td>{{forloop.counter}}</td>
                                        <td>{{i.name}}</td>
                                        <td>{{i.familyasi}}</td>
@@ -28,38 +30,34 @@
                                         <a href="{% url 'ishchi_det' pk=i.id %}" rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
                                             <i class="ti-user"></i>
                                         </a>
-                                        <a href="#" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
+                                        <a href="" rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
                                             <i class="ti-pencil-alt"></i>
                                         </a>
                                        
                                        </td>
-                                  
-                                  
                                    </tr>
-                                {% endfor %}
-                              
                             </tbody>
+                            {% endfor %}
                         </table>
-                            <a href="{% url 'home' %}">
-                                <button type="button" class="btn btn-wd btn-default ">
-                                    <span class="btn-label">
-                                        <i class="fa fa-home"></i>
-                                    </span>
-                                  Home
-                                </button>
-                            </a>
-                            <a href="{% url 'add' %}">
-                                <button type="button" class="btn btn-wd btn-success ">
-                                    <span class="btn-label">
-                                        <i class="fa fa-plus"></i>
-                                    </span>
-                                        ishchi qoshish
-                                </button>
-                            </a>
+                        
+                        {% else %}
+                        <h3>Natijalar topilmadi</h3>
+                        {% endif %}
+                       
+                        {% if messages %}
+                        <ul class="messages">
+                            {% for message in messages %}
+                            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                            {% endfor %}
+                        </ul>
+                        {% endif %}
+                   
                     </div>
+                    
                 </div><!--  end card  -->
             </div> <!-- end col-md-12 -->
         </div> <!-- end row -->
     </div>
     </div>
+    
 {% endblock content %}

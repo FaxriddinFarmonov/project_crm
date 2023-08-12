@@ -35,6 +35,7 @@ class OTP(models.Model):
     email = models.CharField(max_length=512)
     is_expire = models.BooleanField(default=False)
     tries = models.SmallIntegerField(default=0)
+    extra = models.JSONField(default={})
     step = models.CharField(max_length=26)
     by = models.IntegerField(choices=[
         (1,"By register"),
