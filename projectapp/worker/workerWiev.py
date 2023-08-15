@@ -1,3 +1,4 @@
+# bismillahi rohmanirrohim
 from rest_framework.generics import GenericAPIView
 from rest_framework.response import Response
 from projectapp.models.crm import Ishchi
@@ -15,14 +16,14 @@ class WorkerWiev(GenericAPIView):
         }
         return Response(ctx)
     
-    def post(self,request,*args, **kwargs):
-        data = request.data
-        ishchi = Ishchi.objects.create(name=data["name"],
-                                       familyasi=data["familyasi"],
-                                       yoshi=data["yoshi"],
-                                       lavozimi=data["lavozimi"],
-                                       maosh=data["maosh"]
-                                       )
-        ishchi.save()
-       
-        return Response(data)
+    # def post(self,request,*args, **kwargs):
+    #     data = request.data
+    #     ishchi = Ishchi.objects.create(name=data["name"],
+    #                                    familyasi=data["familyasi"],
+    #                                    yoshi=data["yoshi"],
+    #                                    lavozimi=data["lavozimi"],
+    #                                    maosh=data["maosh"]
+    #                                    )
+    #     ishchi.save()
+    #
+    #     return Response(data)
