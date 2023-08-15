@@ -19,3 +19,6 @@ def change_perm(request,pk,status=[0,1]):
         user.perm = True if status==1 else False
         user.save()
     return redirect("get_list")
+
+
+    
